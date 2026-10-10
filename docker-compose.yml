@@ -1,0 +1,41 @@
+version: "3.8"
+
+# TOS 7 Docker application - Trilium Notes
+# Rules: Compose 3.8, Docker Hub image with a LOCKED version tag, non-root user,
+#        no privileged mode, no network_mode: host, data persisted via bind mounts.
+#
+# container_name is intentionally omitted: Compose then derives a globally unique
+# name (<project>_<service>_1), so the application never fails to install because
+# the device already runs a container called "trilium".
+#
+# The v0.106.0 image still ships the older start-docker.sh, which unconditionally remaps
+# the `node` user, chowns /home/node and re-execs through `su` - and in this Alpine image
+# /bin/su is a busybox symlink without the setuid bit, so it fails with
+# "su: must be suid to work properly" when the container does not start as root.
+# The server is therefore started directly as the non-root user. The image's own
+# HEALTHCHECK uses `su-exec node ...` and would always report unhealthy for the same
+# reason, so an explicit healthcheck is defined here instead.
+
+services:
+  trilium:
+    image: triliumnext/trilium:v0.106.0
+    restart: unless-stopped
+    user: "1000:1000"
+    ports:
+      - "10004:8080"
+    volumes:
+      - ./data:/home/node/trilium-data
+    environment:
+      - TZ=Asia/Shanghai
+    entrypoint: ["node", "main.mjs"]
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:8080/ || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 90s
+
+x-app-meta:
+  web:
+    port: 10004
+    protocol: http
