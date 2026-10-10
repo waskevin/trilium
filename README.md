@@ -42,14 +42,22 @@ services:
       - ./data:/home/node/trilium-data
     environment:
       - TZ=Asia/Shanghai
+    entrypoint: ["node", "main.mjs"]
 ```
 
 `x-app-meta` declares `web.port: 10004` / `web.protocol: http`, as required for Docker applications with a Web UI.
 
 ## Design decisions
 
-**Non-root execution.** The upstream entrypoint is written for both cases: started as `1000:1000`
-it skips the `node` user remapping and runs the server directly as the non-root user.
+**Non-root execution.** The published `v0.106.0` image still ships the older `start-docker.sh`: it
+unconditionally remaps the `node` user, runs `chown -R node:node /home/node` and re-execs the server
+through `su`. This image is Alpine-based and `/bin/su` is a busybox symlink without the setuid bit, so
+started as `1000:1000` it fails with `su: must be suid to work properly` and the container restarts in
+a loop. The server is therefore started directly (`entrypoint: ["node", "main.mjs"]`), which is exactly
+what the newer upstream script does in its non-root branch. The image's own HEALTHCHECK runs
+`su-exec node ...` and would report unhealthy for the same reason, so an explicit curl-based healthcheck
+is defined in the compose file instead. Verified on a real TOS 7 device: healthy, HTTP 200, runs as
+uid 1000, data persisted across a restart.
 
 **Credentials.** Trilium has no default account and no environment variable for a password. The
 first page of the web UI asks the user to finish the initial setup, including the access password,
