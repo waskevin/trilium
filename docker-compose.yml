@@ -8,9 +8,13 @@ version: "3.8"
 # name (<project>_<service>_1), so the application never fails to install because
 # the device already runs a container called "trilium".
 #
-# The upstream entrypoint handles both cases; started as 1000:1000 it skips the
-# node remapping and runs the server directly as the non-root user. No credential
-# is needed - Trilium asks for its own password in the web UI on first run.
+# The v0.106.0 image still ships the older start-docker.sh, which unconditionally remaps
+# the `node` user, chowns /home/node and re-execs through `su` - and in this Alpine image
+# /bin/su is a busybox symlink without the setuid bit, so it fails with
+# "su: must be suid to work properly" when the container does not start as root.
+# The server is therefore started directly as the non-root user. The image's own
+# HEALTHCHECK uses `su-exec node ...` and would always report unhealthy for the same
+# reason, so an explicit healthcheck is defined here instead.
 
 services:
   trilium:
@@ -23,6 +27,7 @@ services:
       - ./data:/home/node/trilium-data
     environment:
       - TZ=Asia/Shanghai
+    entrypoint: ["node", "main.mjs"]
     healthcheck:
       test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:8080/ || exit 1"]
       interval: 30s
