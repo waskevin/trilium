@@ -2,98 +2,98 @@
 
 [en-us]
 name = "Trilium Notes"
-auth = "waskevin"
-descript = "Trilium Notes is a hierarchical note-taking application for building a personal knowledge base on your TNAS. Notes are arranged as a tree and support rich text, code blocks, images, diagrams, relations and canvases."
+auth = "triliumnext"
+descript = "Trilium Notes is a hierarchical note-taking application for building a personal knowledge base on your TNAS. Notes are arranged as a tree and can hold rich text, code blocks with syntax highlighting, images, tables, diagrams, canvases and relations, and one note can be cloned into as many places of the tree as you need. Labels, attributes, full-text search and note revisions help you organise what you write and get back to earlier states, and notes can be imported from Markdown, HTML, ENEX or OPML and exported again.<br/><br/>The server keeps everything in an SQLite database inside the application data directory, so a backup is a copy of one folder rather than a database dump. The web interface is served on port 10004; the first visit opens the initial setup where you set the access password."
 release_note = "1. Initial release."
 important = "Open the web UI once to finish the initial setup and set an access password. Docker Engine must be installed and enabled from the TOS App Center."
 
 [zh-cn]
 name = "Trilium Notes"
-auth = "waskevin"
-descript = "Trilium Notes 是层级式笔记应用，可在 TNAS 上构建个人知识库。笔记以树状结构组织，支持富文本、代码块、图片、关系图与画布。"
+auth = "triliumnext"
+descript = "Trilium Notes 是运行在 TNAS 上的层级式笔记应用，用来构建个人知识库。笔记以树状结构组织，可以容纳富文本、带语法高亮的代码块、图片、表格、图表、画布与关系图，同一条笔记还能同时出现在树中的多个位置。借助标签、属性、全文检索和笔记历史版本，可以更好地整理内容并随时回到之前的版本；笔记支持从 Markdown、HTML、ENEX、OPML 导入，也可以再次导出。<br/><br/>服务端把所有内容保存在应用数据目录中的 SQLite 数据库里，备份就是复制一个目录，而不是导出数据库。网页界面端口为 10004，首次打开会进入初始化向导并设置访问密码。"
 release_note = "1. Initial release."
 important = "首次打开网页界面时请完成初始化并设置访问密码。需先在应用中心安装并启用 DockerEngine。"
 
 [zh-hk]
 name = "Trilium Notes"
-auth = "waskevin"
-descript = "Trilium Notes 是层级式笔记应用，可在 TNAS 上构建个人知识库。笔记以树状结构组织，支持富文本、代码块、图片、关系图与画布。"
+auth = "triliumnext"
+descript = "Trilium Notes 是運行在 TNAS 上的層級式筆記應用程式，用來建立個人知識庫。筆記以樹狀結構組織，可以容納富文本、帶語法突顯的程式碼區塊、圖片、表格、圖表、畫布與關聯圖，同一條筆記還能同時出現在樹中的多個位置。藉助標籤、屬性、全文檢索和筆記歷史版本，可以更好地整理內容並隨時回到之前的版本；筆記支援從 Markdown、HTML、ENEX、OPML 匯入，也可以再次匯出。<br/><br/>伺服器端把所有內容保存在應用程式資料目錄中的 SQLite 資料庫裡，備份就是複製一個目錄，而不是匯出資料庫。網頁介面連接埠為 10004，首次開啟會進入初始化精靈並設定存取密碼。"
 release_note = "1. Initial release."
 important = "首次打开网页界面时请完成初始化并设置访问密码。需先在应用中心安装并启用 DockerEngine。"
 
 [fr-fr]
 name = "Trilium Notes"
-auth = "waskevin"
-descript = "Trilium Notes is a hierarchical note-taking application for building a personal knowledge base on your TNAS. Notes are arranged as a tree and support rich text, code blocks, images, diagrams, relations and canvases."
+auth = "triliumnext"
+descript = "Trilium Notes is a hierarchical note-taking application for building a personal knowledge base on your TNAS. Notes are arranged as a tree and can hold rich text, code blocks with syntax highlighting, images, tables, diagrams, canvases and relations, and one note can be cloned into as many places of the tree as you need. Labels, attributes, full-text search and note revisions help you organise what you write and get back to earlier states, and notes can be imported from Markdown, HTML, ENEX or OPML and exported again.<br/><br/>The server keeps everything in an SQLite database inside the application data directory, so a backup is a copy of one folder rather than a database dump. The web interface is served on port 10004; the first visit opens the initial setup where you set the access password."
 release_note = "1. Initial release."
 important = "Open the web UI once to finish the initial setup and set an access password. Docker Engine must be installed and enabled from the TOS App Center."
 
 [de-de]
 name = "Trilium Notes"
-auth = "waskevin"
-descript = "Trilium Notes is a hierarchical note-taking application for building a personal knowledge base on your TNAS. Notes are arranged as a tree and support rich text, code blocks, images, diagrams, relations and canvases."
+auth = "triliumnext"
+descript = "Trilium Notes is a hierarchical note-taking application for building a personal knowledge base on your TNAS. Notes are arranged as a tree and can hold rich text, code blocks with syntax highlighting, images, tables, diagrams, canvases and relations, and one note can be cloned into as many places of the tree as you need. Labels, attributes, full-text search and note revisions help you organise what you write and get back to earlier states, and notes can be imported from Markdown, HTML, ENEX or OPML and exported again.<br/><br/>The server keeps everything in an SQLite database inside the application data directory, so a backup is a copy of one folder rather than a database dump. The web interface is served on port 10004; the first visit opens the initial setup where you set the access password."
 release_note = "1. Initial release."
 important = "Open the web UI once to finish the initial setup and set an access password. Docker Engine must be installed and enabled from the TOS App Center."
 
 [it-it]
 name = "Trilium Notes"
-auth = "waskevin"
-descript = "Trilium Notes is a hierarchical note-taking application for building a personal knowledge base on your TNAS. Notes are arranged as a tree and support rich text, code blocks, images, diagrams, relations and canvases."
+auth = "triliumnext"
+descript = "Trilium Notes is a hierarchical note-taking application for building a personal knowledge base on your TNAS. Notes are arranged as a tree and can hold rich text, code blocks with syntax highlighting, images, tables, diagrams, canvases and relations, and one note can be cloned into as many places of the tree as you need. Labels, attributes, full-text search and note revisions help you organise what you write and get back to earlier states, and notes can be imported from Markdown, HTML, ENEX or OPML and exported again.<br/><br/>The server keeps everything in an SQLite database inside the application data directory, so a backup is a copy of one folder rather than a database dump. The web interface is served on port 10004; the first visit opens the initial setup where you set the access password."
 release_note = "1. Initial release."
 important = "Open the web UI once to finish the initial setup and set an access password. Docker Engine must be installed and enabled from the TOS App Center."
 
 [es-es]
 name = "Trilium Notes"
-auth = "waskevin"
-descript = "Trilium Notes is a hierarchical note-taking application for building a personal knowledge base on your TNAS. Notes are arranged as a tree and support rich text, code blocks, images, diagrams, relations and canvases."
+auth = "triliumnext"
+descript = "Trilium Notes is a hierarchical note-taking application for building a personal knowledge base on your TNAS. Notes are arranged as a tree and can hold rich text, code blocks with syntax highlighting, images, tables, diagrams, canvases and relations, and one note can be cloned into as many places of the tree as you need. Labels, attributes, full-text search and note revisions help you organise what you write and get back to earlier states, and notes can be imported from Markdown, HTML, ENEX or OPML and exported again.<br/><br/>The server keeps everything in an SQLite database inside the application data directory, so a backup is a copy of one folder rather than a database dump. The web interface is served on port 10004; the first visit opens the initial setup where you set the access password."
 release_note = "1. Initial release."
 important = "Open the web UI once to finish the initial setup and set an access password. Docker Engine must be installed and enabled from the TOS App Center."
 
 [hu-hu]
 name = "Trilium Notes"
-auth = "waskevin"
-descript = "Trilium Notes is a hierarchical note-taking application for building a personal knowledge base on your TNAS. Notes are arranged as a tree and support rich text, code blocks, images, diagrams, relations and canvases."
+auth = "triliumnext"
+descript = "Trilium Notes is a hierarchical note-taking application for building a personal knowledge base on your TNAS. Notes are arranged as a tree and can hold rich text, code blocks with syntax highlighting, images, tables, diagrams, canvases and relations, and one note can be cloned into as many places of the tree as you need. Labels, attributes, full-text search and note revisions help you organise what you write and get back to earlier states, and notes can be imported from Markdown, HTML, ENEX or OPML and exported again.<br/><br/>The server keeps everything in an SQLite database inside the application data directory, so a backup is a copy of one folder rather than a database dump. The web interface is served on port 10004; the first visit opens the initial setup where you set the access password."
 release_note = "1. Initial release."
 important = "Open the web UI once to finish the initial setup and set an access password. Docker Engine must be installed and enabled from the TOS App Center."
 
 [ja-jp]
 name = "Trilium Notes"
-auth = "waskevin"
-descript = "Trilium Notes is a hierarchical note-taking application for building a personal knowledge base on your TNAS. Notes are arranged as a tree and support rich text, code blocks, images, diagrams, relations and canvases."
+auth = "triliumnext"
+descript = "Trilium Notes is a hierarchical note-taking application for building a personal knowledge base on your TNAS. Notes are arranged as a tree and can hold rich text, code blocks with syntax highlighting, images, tables, diagrams, canvases and relations, and one note can be cloned into as many places of the tree as you need. Labels, attributes, full-text search and note revisions help you organise what you write and get back to earlier states, and notes can be imported from Markdown, HTML, ENEX or OPML and exported again.<br/><br/>The server keeps everything in an SQLite database inside the application data directory, so a backup is a copy of one folder rather than a database dump. The web interface is served on port 10004; the first visit opens the initial setup where you set the access password."
 release_note = "1. Initial release."
 important = "Open the web UI once to finish the initial setup and set an access password. Docker Engine must be installed and enabled from the TOS App Center."
 
 [ko-kr]
 name = "Trilium Notes"
-auth = "waskevin"
-descript = "Trilium Notes is a hierarchical note-taking application for building a personal knowledge base on your TNAS. Notes are arranged as a tree and support rich text, code blocks, images, diagrams, relations and canvases."
+auth = "triliumnext"
+descript = "Trilium Notes is a hierarchical note-taking application for building a personal knowledge base on your TNAS. Notes are arranged as a tree and can hold rich text, code blocks with syntax highlighting, images, tables, diagrams, canvases and relations, and one note can be cloned into as many places of the tree as you need. Labels, attributes, full-text search and note revisions help you organise what you write and get back to earlier states, and notes can be imported from Markdown, HTML, ENEX or OPML and exported again.<br/><br/>The server keeps everything in an SQLite database inside the application data directory, so a backup is a copy of one folder rather than a database dump. The web interface is served on port 10004; the first visit opens the initial setup where you set the access password."
 release_note = "1. Initial release."
 important = "Open the web UI once to finish the initial setup and set an access password. Docker Engine must be installed and enabled from the TOS App Center."
 
 [pl-pl]
 name = "Trilium Notes"
-auth = "waskevin"
-descript = "Trilium Notes is a hierarchical note-taking application for building a personal knowledge base on your TNAS. Notes are arranged as a tree and support rich text, code blocks, images, diagrams, relations and canvases."
+auth = "triliumnext"
+descript = "Trilium Notes is a hierarchical note-taking application for building a personal knowledge base on your TNAS. Notes are arranged as a tree and can hold rich text, code blocks with syntax highlighting, images, tables, diagrams, canvases and relations, and one note can be cloned into as many places of the tree as you need. Labels, attributes, full-text search and note revisions help you organise what you write and get back to earlier states, and notes can be imported from Markdown, HTML, ENEX or OPML and exported again.<br/><br/>The server keeps everything in an SQLite database inside the application data directory, so a backup is a copy of one folder rather than a database dump. The web interface is served on port 10004; the first visit opens the initial setup where you set the access password."
 release_note = "1. Initial release."
 important = "Open the web UI once to finish the initial setup and set an access password. Docker Engine must be installed and enabled from the TOS App Center."
 
 [ru-ru]
 name = "Trilium Notes"
-auth = "waskevin"
-descript = "Trilium Notes is a hierarchical note-taking application for building a personal knowledge base on your TNAS. Notes are arranged as a tree and support rich text, code blocks, images, diagrams, relations and canvases."
+auth = "triliumnext"
+descript = "Trilium Notes is a hierarchical note-taking application for building a personal knowledge base on your TNAS. Notes are arranged as a tree and can hold rich text, code blocks with syntax highlighting, images, tables, diagrams, canvases and relations, and one note can be cloned into as many places of the tree as you need. Labels, attributes, full-text search and note revisions help you organise what you write and get back to earlier states, and notes can be imported from Markdown, HTML, ENEX or OPML and exported again.<br/><br/>The server keeps everything in an SQLite database inside the application data directory, so a backup is a copy of one folder rather than a database dump. The web interface is served on port 10004; the first visit opens the initial setup where you set the access password."
 release_note = "1. Initial release."
 important = "Open the web UI once to finish the initial setup and set an access password. Docker Engine must be installed and enabled from the TOS App Center."
 
 [tr-tr]
 name = "Trilium Notes"
-auth = "waskevin"
-descript = "Trilium Notes is a hierarchical note-taking application for building a personal knowledge base on your TNAS. Notes are arranged as a tree and support rich text, code blocks, images, diagrams, relations and canvases."
+auth = "triliumnext"
+descript = "Trilium Notes is a hierarchical note-taking application for building a personal knowledge base on your TNAS. Notes are arranged as a tree and can hold rich text, code blocks with syntax highlighting, images, tables, diagrams, canvases and relations, and one note can be cloned into as many places of the tree as you need. Labels, attributes, full-text search and note revisions help you organise what you write and get back to earlier states, and notes can be imported from Markdown, HTML, ENEX or OPML and exported again.<br/><br/>The server keeps everything in an SQLite database inside the application data directory, so a backup is a copy of one folder rather than a database dump. The web interface is served on port 10004; the first visit opens the initial setup where you set the access password."
 release_note = "1. Initial release."
 important = "Open the web UI once to finish the initial setup and set an access password. Docker Engine must be installed and enabled from the TOS App Center."
 
 [pt-pt]
 name = "Trilium Notes"
-auth = "waskevin"
-descript = "Trilium Notes is a hierarchical note-taking application for building a personal knowledge base on your TNAS. Notes are arranged as a tree and support rich text, code blocks, images, diagrams, relations and canvases."
+auth = "triliumnext"
+descript = "Trilium Notes is a hierarchical note-taking application for building a personal knowledge base on your TNAS. Notes are arranged as a tree and can hold rich text, code blocks with syntax highlighting, images, tables, diagrams, canvases and relations, and one note can be cloned into as many places of the tree as you need. Labels, attributes, full-text search and note revisions help you organise what you write and get back to earlier states, and notes can be imported from Markdown, HTML, ENEX or OPML and exported again.<br/><br/>The server keeps everything in an SQLite database inside the application data directory, so a backup is a copy of one folder rather than a database dump. The web interface is served on port 10004; the first visit opens the initial setup where you set the access password."
 release_note = "1. Initial release."
 important = "Open the web UI once to finish the initial setup and set an access password. Docker Engine must be installed and enabled from the TOS App Center."
