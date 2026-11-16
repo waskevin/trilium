@@ -39,7 +39,7 @@ services:
     ports:
       - "10004:8080"
     volumes:
-      - ./data:/home/node/trilium-data
+      - /data:/home/node/trilium-data
     environment:
       - TZ=Asia/Shanghai
     entrypoint: ["node", "main.mjs"]
@@ -51,13 +51,12 @@ services:
 
 **Non-root execution.** The published `v0.106.0` image still ships the older `start-docker.sh`: it
 unconditionally remaps the `node` user, runs `chown -R node:node /home/node` and re-execs the server
-through `su`. This image is Alpine-based and `/bin/su` is a busybox symlink without the setuid bit, so
-started as `1000:1000` it fails with `su: must be suid to work properly` and the container restarts in
-a loop. The server is therefore started directly (`entrypoint: ["node", "main.mjs"]`), which is exactly
-what the newer upstream script does in its non-root branch. The image's own HEALTHCHECK runs
-`su-exec node ...` and would report unhealthy for the same reason, so an explicit curl-based healthcheck
-is defined in the compose file instead. Verified on a real TOS 7 device: healthy, HTTP 200, runs as
-uid 1000, data persisted across a restart.
+through `su`. All three steps need root, so started as `1000:1000` the container would restart in a
+loop. The server is therefore started directly (`entrypoint: ["node", "main.mjs"]`), which is exactly
+what that script runs once it is done. The image's own HEALTHCHECK goes through `gosu node` and would
+report unhealthy for the same reason, so an explicit curl-based healthcheck is defined instead.
+The container runs as uid 1000 and keeps its data in the bind mount, so it survives a restart or an
+update of the package.
 
 **Credentials.** Trilium has no default account and no environment variable for a password. The
 first page of the web UI asks the user to finish the initial setup, including the access password,
@@ -119,3 +118,28 @@ the Release, not from the repository root):
 - Upstream project: https://github.com/TriliumNext/Trilium
 - Docker Hub image: https://hub.docker.com/r/triliumnext/trilium
 - TOS 7 development guide: https://github.com/terramaster-tos/tos-app-pkg-tools
+
+## License / 许可证
+
+The packaging in this repository (`config.ini`, `trilium.lang`, `trilium.svg`,
+`docker-compose.yml`, `README.md`, `PRIVACY.md`, `NOTICE`) is released under the
+AGPL-3.0 licence; the full text is in `LICENSE`.  The application itself is
+developed by the Trilium Notes project and keeps its own copyright — see `NOTICE`.
+
+本仓库中的打包文件以 AGPL-3.0 许可发布，全文见 `LICENSE`；应用本体版权归
+Trilium Notes 项目所有，详见 `NOTICE`。
+
+## Privacy / 隐私
+
+No telemetry, no analytics, no data sent to the packager.  The full policy,
+including what the application itself stores and may send, is in
+[PRIVACY.md](PRIVACY.md).
+
+不含遥测、统计，也不会向打包者发送任何数据。完整说明（含应用自身会存储和发送
+什么）见 [PRIVACY.md](PRIVACY.md)。
+
+## Third-party / 第三方
+
+- Upstream project: https://github.com/TriliumNext/Trilium
+- Docker image: https://hub.docker.com/r/triliumnext/trilium
+- Licence of the upstream project: AGPL-3.0
