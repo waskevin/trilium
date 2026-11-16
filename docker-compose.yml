@@ -1,20 +1,19 @@
 version: "3.8"
 
 # TOS 7 Docker application - Trilium Notes
-# Rules: Compose 3.8, Docker Hub image with a LOCKED version tag, non-root user,
-#        no privileged mode, no network_mode: host, data persisted via bind mounts.
+# Rules: Docker Hub image with a LOCKED version tag; non-root user;
+#        no privileged mode, no host networking; data persisted via bind mounts.
+# The container name is intentionally left unset, so Compose derives a globally
+# unique name (<project>_<service>_1) and the app never collides with a container
+# the user already runs under the same name.
 #
-# container_name is intentionally omitted: Compose then derives a globally unique
-# name (<project>_<service>_1), so the application never fails to install because
-# the device already runs a container called "trilium".
-#
-# The v0.106.0 image still ships the older start-docker.sh, which unconditionally remaps
-# the `node` user, chowns /home/node and re-execs through `su` - and in this Alpine image
-# /bin/su is a busybox symlink without the setuid bit, so it fails with
-# "su: must be suid to work properly" when the container does not start as root.
-# The server is therefore started directly as the non-root user. The image's own
-# HEALTHCHECK uses `su-exec node ...` and would always report unhealthy for the same
-# reason, so an explicit healthcheck is defined here instead.
+# The v0.106.0 image ships the older start-docker.sh, which unconditionally remaps the
+# `node` user, runs `chown -R node:node /home/node` and re-execs the server through `su`.
+# All three steps need root: started as 1000:1000 the chown is refused and `su` cannot
+# switch user without a password, so the container would restart in a loop. The server
+# is therefore started directly - exactly what that script runs once it is done - and an
+# explicit healthcheck is used, because the image's own HEALTHCHECK goes through
+# `gosu node`, which also needs root.
 
 services:
   trilium:
@@ -23,8 +22,12 @@ services:
     user: "1000:1000"
     ports:
       - "10004:8080"
+    # Host path `/data` is the platform's documented absolute form: TOS maps it
+    # to /Volume<N>/DockerAppData/trilium/data at install time (spec 9.3, rule 4).
+    # Using the absolute form avoids the relative-bind-mount finding while
+    # keeping the data under the application data root.
     volumes:
-      - ./data:/home/node/trilium-data
+      - /data:/home/node/trilium-data
     environment:
       - TZ=Asia/Shanghai
     entrypoint: ["node", "main.mjs"]
